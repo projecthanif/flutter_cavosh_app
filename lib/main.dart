@@ -1,4 +1,4 @@
-import 'package:cavosh_app/loading_page.dart';
+import 'package:cavosh_app/pages/navpages/main_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
-      home: const LoadingPage(),
+      home: const MainNavPage(),
     );
   }
 }

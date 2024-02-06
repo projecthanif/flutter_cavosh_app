@@ -2,9 +2,15 @@ import 'package:cavosh_app/misc/color.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-  AppTextField({super.key, required this.name, this.obscureText = false});
+  AppTextField({
+    super.key,
+    required this.name,
+    this.obscureText = false,
+    this.color = AppColors.input,
+  });
   String name;
   bool obscureText;
+  Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +23,12 @@ class AppTextField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40),
-        color: AppColors.input,
+        color: color,
       ),
       child: TextField(
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: name,
-          // icon: Icon(Icons.password),
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(40),
