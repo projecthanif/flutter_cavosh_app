@@ -7,7 +7,7 @@ class CoffeeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       width: 150,
       decoration: BoxDecoration(
         color: AppColors.txtInput.withOpacity(0.3),

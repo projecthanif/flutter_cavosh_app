@@ -92,7 +92,7 @@ class AppHome extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Container(
+            SizedBox(
               height: 250,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -113,17 +113,14 @@ class AppHome extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              height: double.maxFinite,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.all(10),
-                    child: CoffeeListCard(),
-                  );
-                },
-              ),
-            ),
+            // Container(
+            //   height: 500,
+            //   child: ListView.builder(
+            //     itemBuilder: (context, index) {
+            //       return const CoffeeListCard();
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),

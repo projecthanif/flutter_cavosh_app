@@ -36,7 +36,7 @@ class AlternativeBtn extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

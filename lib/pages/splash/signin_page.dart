@@ -60,7 +60,7 @@ class AppSignIn extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AppSignUp(),
+                              builder: (context) => const AppSignUp(),
                             ),
                           );
                         },
