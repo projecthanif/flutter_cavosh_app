@@ -9,6 +9,7 @@ class CoffeeCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       width: 150,
+      height: 500,
       decoration: BoxDecoration(
         color: AppColors.txtInput.withOpacity(0.3),
         borderRadius: BorderRadius.circular(30),

@@ -1,3 +1,5 @@
+import 'package:cavosh_app/components/app_tabs.dart';
+import 'package:cavosh_app/components/menu_card.dart';
 import 'package:cavosh_app/components/search_bar.dart';
 import 'package:cavosh_app/components/tab_bar.dart';
 import 'package:cavosh_app/misc/color.dart';
@@ -11,9 +13,31 @@ class AppMenu extends StatefulWidget {
 }
 
 class _AppMenuState extends State<AppMenu> with TickerProviderStateMixin {
+  late TabController _tabController;
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(_handleTabSelection);
+  }
+
+  void _handleTabSelection() {
+    setState(() {
+      _currentIndex = _tabController.index;
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 3, vsync: this);
+    // TabController tabController = TabController(length: 3, vsync: this);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -73,13 +97,25 @@ class _AppMenuState extends State<AppMenu> with TickerProviderStateMixin {
               controller: _tabController,
               indicatorColor: Colors.white,
               dividerColor: Colors.white,
-              onTap: (index) {
-                print(_tabController.index);
-              },
+              isScrollable: true,
+              tabAlignment: TabAlignment.center,
+              indicatorSize: TabBarIndicatorSize.tab,
               tabs: [
-                AppTabBar(index: _tabController.index),
-                AppTabBar(index: _tabController.index),
-                AppTabBar(index: _tabController.index),
+                AppTabBar(
+                  index: 0,
+                  currentIndex: _currentIndex,
+                  tabName: tabs[0],
+                ),
+                AppTabBar(
+                  index: 1,
+                  currentIndex: _currentIndex,
+                  tabName: tabs[1],
+                ),
+                AppTabBar(
+                  index: 2,
+                  currentIndex: _currentIndex,
+                  tabName: tabs[2],
+                ),
               ],
             ),
             SizedBox(
@@ -87,9 +123,18 @@ class _AppMenuState extends State<AppMenu> with TickerProviderStateMixin {
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  Container(height: 200, child: Text("HOT")),
-                  Container(height: 200, child: Text("COLD")),
-                  Container(height: 200, child: Text("BREAD")),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 40),
+                    child: const MenuCard(),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 40),
+                    child: const MenuCard(),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 40),
+                    child: const MenuCard(),
+                  ),
                 ],
               ),
             ),
